@@ -11,7 +11,8 @@ class Player:
         self.date_of_birth = date_of_birth
 
     def save_player(self):
-        Player.list_players.append(Player())
+        # Player.list_players.append(Player())
+        pass
 
     def to_python(self):
         pass
