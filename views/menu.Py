@@ -8,7 +8,7 @@ def ask_user():
         print("||selectionner une option, VOUS ÉTES : ||")
         print("")
         print("  =====================================")
-        response = int(input("1 Joueur\n2 Organisateur\n3 Quit >>"))
+        response = int(input("1 Joueur\n2 Organisateur\n0 Quit >>"))
         match response:
             case 1:
                 print("Tu est donc un joueur\n ==========================")
@@ -36,32 +36,8 @@ def ask_user():
                         print("Tu veux :Sélectionner un tournois existant")
                     case 0:
                         response = str(0)
-            case 3:
+            case _:
                 break
 
-        #     if player_section_choice == 1:
-        #     elif player_section_choice == 0:
-        #         print("retour au menu principal")
-        #         reponse = int(player_section_choice)
-        #         print(reponse)
-        # elif reponse == 2:
-        #
-        #     if player_section_choice == 1:
-        #
-        #     elif player_section_choice == 2:
-        #
-        #     elif player_section_choice == 3:
-        #
-        #     elif player_section_choice == 4:
-        #
-        #     elif player_section_choice == 0:
-        #         print("Tu veux : Retour au menu principal")
-        #         reponse = int(player_section_choice)
-
-
-# ICI
-# match teste:
-#     case 0:
-#         pass
 
 ask_user()
