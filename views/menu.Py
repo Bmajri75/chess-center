@@ -1,4 +1,7 @@
+
 class Menu:
+    def __init__(self):
+        pass
 
     def ask_Player(self):
         print("Tu est donc un joueur\n ==========================")
