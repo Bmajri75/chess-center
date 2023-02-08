@@ -32,7 +32,7 @@ class Menu:
         joueur.append(first_name, )
         joueur.append(last_name, )
         joueur.append(date_of_birth)
-        return print(joueur)
+        return joueur
 
     def match_response(self):
         """match response from ask user and return the appropriate method """
