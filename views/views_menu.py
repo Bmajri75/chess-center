@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from controllers.player_controller import PlayerController
 
 
 @dataclass
@@ -21,25 +22,23 @@ class Menu:
                       """))
         return menu_response
 
-    def creat_player(self):
-        joueur = []
+    def views_player(self):
         print("cree un joueur ")
         id = input("Entre ton ID National>>>")
         first_name = input("Entre ton Nom >>>")
         last_name = input("Entre ton Prénom >>>")
         date_of_birth = input("Entre ta date de naissance >>>")
-        joueur.append(id)
-        joueur.append(first_name, )
-        joueur.append(last_name, )
-        joueur.append(date_of_birth)
-        return joueur
+
+        player = PlayerController.create_player(
+            id, first_name, last_name, date_of_birth)
+        return print(player)
 
     def match_response(self):
         """match response from ask user and return the appropriate method """
         match self.ask_user():
             case 1:
                 print("reponse 1 ")
-                self.creat_player()
+                self.views_player()
             case 2:
                 print("reponse 2 ")
             case 3:
@@ -48,7 +47,3 @@ class Menu:
                 print('reponse 4')
             case 0:
                 print("reponse Q")
-
-
-menu = Menu()
-menu.match_response()
