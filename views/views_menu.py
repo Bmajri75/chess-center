@@ -28,10 +28,8 @@ class Menu:
         first_name = input("Entre ton Nom >>>")
         last_name = input("Entre ton Prénom >>>")
         date_of_birth = input("Entre ta date de naissance >>>")
-
-        player = PlayerController.create_player(
+        PlayerController.create_player(
             id, first_name, last_name, date_of_birth)
-        return print(player)
 
     def match_response(self):
         """match response from ask user and return the appropriate method """
