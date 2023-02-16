@@ -26,6 +26,7 @@ class PlayerController:
             try:
                 datetime.datetime.strptime(
                     player.date_of_birth, '%d/%m/%Y').date()
+                return True
             except ValueError:
                 # Si la conversion échoue, afficher un message d'erreur
                 print("La date n'est pas au format correct"
