@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from controllers.player_controller import PlayerController
+from controllers.tournament_controller import TournamentController
 
 
 @dataclass
@@ -31,6 +32,28 @@ class Menu:
         PlayerController.create_player(
             id, first_name, last_name, date_of_birth)
 
+    def views_tournament(self):
+        print("cree un Tourmois")
+        name = input("Entre le nom du tournois >>> ")
+        location = input("Où à Lieu le tournois >>> ")
+        start_date = input("date de début >>> ")
+        end_date = input("date de fin Prévu >>> ")
+        number_of_laps = input("nombre de tours. (Par defaut 4 ) >>> ")
+        current_lap = 0
+        rounds = []
+        players = []
+        description = input("Entrez votre description >>> ")
+        TournamentController.creat_tournament(name,
+                                              location,
+                                              start_date,
+                                              end_date,
+                                              number_of_laps,
+                                              current_lap,
+                                              rounds,
+                                              players,
+                                              description
+                                              )
+
     def match_response(self):
         """match response from ask user and return the appropriate method """
         match self.ask_user():
@@ -39,6 +62,7 @@ class Menu:
                 self.views_player()
             case 2:
                 print("reponse 2 ")
+                self.views_tournament()
             case 3:
                 print('reponse 3')
             case 4:

@@ -3,11 +3,9 @@ import re
 import json
 
 from json.decoder import JSONDecodeError
-from dataclasses import dataclass
 from models.player_model import Player
 
 
-@dataclass
 class PlayerController:
     """ Create a new player, if player is not in the data """
     @staticmethod
@@ -32,7 +30,7 @@ class PlayerController:
                 print("La date n'est pas au format correct"
                       "Format attendu '18/01/1986'")
         else:
-            print("Veuillez entrer un ID Valide Format 'AB123'")
+            print("Veuillez entrer un ID Valide Format 'AB12345'")
             return False
 
     @staticmethod
