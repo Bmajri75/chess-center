@@ -34,6 +34,7 @@ class TournamentController:
         except JSONDecodeError:
             data = {}
             data['tournament'] = []
+            data['players'] = []
 
         temp = data['tournament']
         temp.append({
