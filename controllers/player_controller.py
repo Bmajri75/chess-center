@@ -6,10 +6,9 @@ from json.decoder import JSONDecodeError
 from models.player_model import Player
 
 
-class PlayerController:
-    """ Create a new player, if player is not in the data """
+class Validator:
     @staticmethod
-    def verif_chaine(id):
+    def verif_id(id):
         pattern = r'[A-Z]{2}\d{5}'
         match = re.search(pattern, id)
         if match:
@@ -18,12 +17,16 @@ class PlayerController:
             return False
 
     @staticmethod
-    def validator(player):
+    def verif_date(date):
+        datetime.datetime.strptime(date, '%d/%m/%Y').date()
+        return True
+
+    @staticmethod
+    def validator_methode(player):
         """methode qui valide les format des donnee entrer de la views"""
-        if PlayerController.verif_chaine(player.id):
+        if PlayerController.verif_id(player.id):
             try:
-                datetime.datetime.strptime(
-                    player.date_of_birth, '%d/%m/%Y').date()
+                PlayerController.verif_date(player.date_of_birth)
                 return True
             except ValueError:
                 # Si la conversion échoue, afficher un message d'erreur
@@ -33,10 +36,14 @@ class PlayerController:
             print("Veuillez entrer un ID Valide Format 'AB12345'")
             return False
 
+
+class PlayerController(Validator):
+    """ Create a new player, if player is not in the data """
+
     @staticmethod
     def create_player(id, first_name, last_name, date_of_birth):
         player = Player(id, first_name, last_name, date_of_birth)
-        if PlayerController.validator(player):
+        if Validator.validator_methode(player):
             PlayerController.save_player(player)
 
     @staticmethod
@@ -59,3 +66,7 @@ class PlayerController:
 
         with open('data/tournaments.json', 'w') as json_file:
             json.dump(data, json_file, indent=4)
+
+
+# class Parent controller
+#

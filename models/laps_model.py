@@ -11,4 +11,10 @@ class Laps:
     games: str = []
 
     def create_laps(self):
-        pass
+        laps = Laps()
+        return laps
+
+
+# IMPLEMENTER LE LAPS AVEC LES CHARACTERISTIQUES
+
+# APPELER CETTE CLASS SUR LA VUE POUR IMPLEMENTER LES METHODE ADEQUATE
