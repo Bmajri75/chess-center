@@ -1,6 +1,8 @@
+from datetime import datetime
 from dataclasses import dataclass
 from controllers.player_controller import PlayerController
 from controllers.tournament_controller import TournamentController
+from controllers.round_controller import Round_controller
 
 
 @dataclass
@@ -38,21 +40,46 @@ class Menu:
         location = input("Où à Lieu le tournois >>> ")
         start_date = input("date de début >>> ")
         end_date = input("date de fin Prévu >>> ")
-        number_of_laps = input("nombre de tours. (Par defaut 4 ) >>> ")
+        number_of_round = input("nombre de tours. (Par defaut 4 ) >>> ")
         current_lap = 0
+        start_time = datetime.now()
+        end_time = datetime.now()
         rounds = []
         players = []
         description = input("Entrez votre description >>> ")
-        TournamentController.creat_tournament(name,
-                                              location,
-                                              start_date,
-                                              end_date,
-                                              number_of_laps,
-                                              current_lap,
-                                              rounds,
-                                              players,
-                                              description
-                                              )
+        round = Round_controller.create_round(
+            start_date,
+            str(datetime.time(start_time)),
+            end_date, str(datetime.time(end_time)),
+            1)
+        rounds.append(str(round))
+        TournamentController.creat_tournament(
+            name,
+            location,
+            start_date,
+            end_date,
+            number_of_round,
+            current_lap,
+            rounds,
+            players,
+            description
+        )
+
+    def laps_information(self):
+        start_date = input("Veuillez entrer la date de debut du tournois >>> ")
+        start_time = input("Veuillez entrer l'heure du debut du tournois >>> ")
+        end_date = input("Veuillez entrer la date de fin du tournois >>> ")
+        end_time = input("Veuillez entrer  l'heure de fin du tournois >>> ")
+        game = []
+        name = "Tours 1"
+        Round_controller.create_round(
+            start_date,
+            start_time,
+            end_date,
+            end_time,
+            game,
+            name
+        )
 
     def match_response(self):
         """match response from ask user and return the appropriate method """

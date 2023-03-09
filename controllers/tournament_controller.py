@@ -1,30 +1,34 @@
 import json
-
+from dataclasses import dataclass
 from models.tournament_model import Tournament
 from controllers.player_controller import Validator
 from json.decoder import JSONDecodeError
 
 
+@dataclass
 class TournamentController(Validator):
+
     @staticmethod
-    def creat_tournament(name,
-                         location,
-                         start_date,
-                         end_date,
-                         number_of_laps,
-                         current_lap,
-                         rounds,
-                         players,
-                         description):
-        tournament = Tournament(name,
-                                location,
-                                start_date,
-                                end_date,
-                                number_of_laps,
-                                current_lap,
-                                rounds,
-                                players,
-                                description)
+    def creat_tournament(
+            name,
+            location,
+            start_date,
+            end_date,
+            number_of_laps,
+            current_lap,
+            rounds,
+            players,
+            description):
+        tournament = Tournament(
+            name,
+            location,
+            start_date,
+            end_date,
+            number_of_laps,
+            current_lap,
+            rounds,
+            players,
+            description)
         TournamentController.save_tournament(tournament)
 
     @staticmethod
@@ -50,6 +54,10 @@ class TournamentController(Validator):
                         'players': tournament.players,
                         'description': tournament.description,
                         })
-
             with open('data/tournaments.json', 'w') as json_file:
                 json.dump(data, json_file, indent=4)
+
+
+# A FAIRE
+#     : VERIFIER SI LE TOURNOIS EXISTE
+#         SI IL EXISTE DANS LE JSON j'implemente le ROUND +1

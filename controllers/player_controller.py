@@ -2,10 +2,12 @@ import datetime
 import re
 import json
 
+from dataclasses import dataclass
 from json.decoder import JSONDecodeError
 from models.player_model import Player
 
 
+@dataclass
 class Validator:
     @staticmethod
     def verif_id(id):
@@ -37,6 +39,7 @@ class Validator:
             return False
 
 
+@dataclass
 class PlayerController(Validator):
     """ Create a new player, if player is not in the data """
 
