@@ -1,5 +1,8 @@
+
+import json
 from datetime import datetime
 from dataclasses import dataclass
+
 from controllers.player_controller import PlayerController
 from controllers.tournament_controller import TournamentController
 from controllers.round_controller import Round_controller
@@ -49,10 +52,13 @@ class Menu:
         description = input("Entrez votre description >>> ")
         round = Round_controller.create_round(
             start_date,
-            str(datetime.time(start_time)),
-            end_date, str(datetime.time(end_time)),
+            datetime.time(start_time),
+            end_date, datetime.time(end_time),
             1)
-        rounds.append(str(round))
+        rounds.append(json.loads(json.dumps(round.__dict__, indent=4,
+                      sort_keys=True, default=str)))
+        print(rounds)
+        print(round)
         TournamentController.creat_tournament(
             name,
             location,
@@ -78,7 +84,7 @@ class Menu:
             end_date,
             end_time,
             game,
-            name
+            name,
         )
 
     def match_response(self):

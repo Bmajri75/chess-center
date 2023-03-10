@@ -8,3 +8,4 @@ class Round:
     end_date: str
     end_time: str
     name: int
+    match: list
