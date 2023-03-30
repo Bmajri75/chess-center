@@ -7,6 +7,7 @@ from json.decoder import JSONDecodeError
 from models.model import Tournament
 from models.model import Round
 from models.model import Player
+from models.model import Match
 
 
 @dataclass
@@ -162,5 +163,20 @@ class PlayerController(Validator):
             json.dump(data, json_file, indent=4)
 
 
+@dataclass
+class MatchController():
+    def creat_match(players):
+        pass
+
+    def points_distributor(self, winner, looser, null):
+        # winner = 1
+        # looser = 0
+        # null = 0.5
+        pass
+    """cette fonction dois prendre 2 joueurs
+       le gagnant 1 pt
+       le perdant 0pt
+       en cas de nul 0.5 chacun
+    """
 # class Parent controller
 #

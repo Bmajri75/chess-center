@@ -23,7 +23,8 @@ class Menu:
                       1 . Crée un joueur
                       2 . Crée un tournoi
                       3 . Voir un tournoi
-                      4 . Voir les rapports
+                      4 . Voir les classements
+                      5 . Voir les statistique d'un joueurs
                       0 . Quit
                       """))
         return menu_response
